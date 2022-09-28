@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: knote
+  description: |
+    knote
+  annotations:
+    github.com/project-slug: tomig90/backstage-starting
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: knote
+spec:
+  type: library
+  owner: tomig90
+  lifecycle: experimental

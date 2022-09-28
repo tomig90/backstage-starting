@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: backstage-test2
+  description: |
+    backstage-test2
+  annotations:
+    github.com/project-slug: tomig90/backstage-starting
+    backstage.io/techdocs-ref: dir:.
+    backstage.io/kubernetes-id: backstage-starting2
+    backstage.io/kubernetes-namespace: default
+spec:
+  type: library
+  owner: tomig90
+  lifecycle: experimental

@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: mongo-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 256Mi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: knote2
+spec:
+  selector:
+    app: knote2
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: knote2
+spec:
+  replicas: 7
+  selector:
+    matchLabels:
+      app: knote2
+  template:
+    metadata:
+      labels:
+        app: knote2
+        backstage.io/kubernetes-id: backstage-starting2
+    spec:
+      containers:
+        - name: app
+          image: learnk8s/knote-js:1.0.0
+          ports:
+            - containerPort: 3001
+          env:
+            - name: MONGO_URL
+              value: mongodb://mongo:27333/dev2
+          imagePullPolicy: Always

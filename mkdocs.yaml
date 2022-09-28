@@ -1,0 +1,14 @@
+site_name: 'TestDocSite'
+site_description: 'TestDocSite'
+repo_url: https://github.com/tomig90/backstage-starting
+edit_uri: edit/master/docs
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Overview:
+      - README: 'README.md'
+  - Foldered Docs:
+      - Doc1: 'subdocs/Readme1.md'
+      - Doc2: 'subdocs/Readme2.md'
